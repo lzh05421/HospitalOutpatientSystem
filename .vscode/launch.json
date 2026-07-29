@@ -1,0 +1,57 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run All",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build-windows/launcher/hospital_launcher.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "D:/Qt/Tools/mingw1310_64/bin/gdb.exe",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "D:/Qt/6.11.0/mingw_64/bin;D:/Qt/Tools/mingw1310_64/bin;${env:PATH}"
+                }
+            ],
+            "preLaunchTask": "Windows: Build"
+        },
+        {
+            "name": "Run Client",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build-windows/client/hospital_client.exe",
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "D:/Qt/Tools/mingw1310_64/bin/gdb.exe",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "D:/Qt/6.11.0/mingw_64/bin;D:/Qt/Tools/mingw1310_64/bin;${env:PATH}"
+                }
+            ],
+            "preLaunchTask": "Windows: Build"
+        },
+        {
+            "name": "Run Server",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build-windows/server/hospital_server.exe",
+            "args": [
+                "config/server.example.ini"
+            ],
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "D:/Qt/Tools/mingw1310_64/bin/gdb.exe",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "D:/Qt/6.11.0/mingw_64/bin;D:/Qt/Tools/mingw1310_64/bin;${env:PATH}"
+                }
+            ],
+            "preLaunchTask": "Windows: Build"
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "version": 6,
+    "configurePresets": [
+        {
+            "name": "windows-qt-mingw",
+            "displayName": "Windows Qt 6 MinGW",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            },
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-windows",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_MAKE_PROGRAM": "D:/Qt/Tools/Ninja/ninja.exe",
+                "CMAKE_C_COMPILER": "D:/Qt/Tools/mingw1310_64/bin/gcc.exe",
+                "CMAKE_CXX_COMPILER": "D:/Qt/Tools/mingw1310_64/bin/g++.exe",
+                "CMAKE_PREFIX_PATH": "D:/Qt/6.11.0/mingw_64"
+            }
+        },
+        {
+            "name": "qtcreator-windows",
+            "displayName": "Qt Creator Windows Qt 6 MinGW",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            },
+            "generator": "Ninja Multi-Config",
+            "binaryDir": "${sourceDir}/build-qtcreator",
+            "cacheVariables": {
+                "CMAKE_CONFIGURATION_TYPES": "Debug;Release",
+                "CMAKE_MAKE_PROGRAM": "D:/Qt/Tools/Ninja/ninja.exe",
+                "CMAKE_C_COMPILER": "D:/Qt/Tools/mingw1310_64/bin/gcc.exe",
+                "CMAKE_CXX_COMPILER": "D:/Qt/Tools/mingw1310_64/bin/g++.exe",
+                "CMAKE_PREFIX_PATH": "D:/Qt/6.11.0/mingw_64"
+            }
+        },
+        {
+            "name": "linux-qt6",
+            "displayName": "Linux Qt 6",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            },
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-linux",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        },
+        {
+            "name": "linux-qt5",
+            "displayName": "Linux Qt 5",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            },
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-linux-qt5",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        },
+        {
+            "name": "kylin-qt5",
+            "displayName": "Kylin Linux Qt 5",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            },
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-kylin",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "windows-qt-mingw",
+            "configurePreset": "windows-qt-mingw"
+        },
+        {
+            "name": "qtcreator-windows",
+            "configurePreset": "qtcreator-windows",
+            "configuration": "Debug"
+        },
+        {
+            "name": "linux-qt6",
+            "configurePreset": "linux-qt6"
+        },
+        {
+            "name": "linux-qt5",
+            "configurePreset": "linux-qt5"
+        },
+        {
+            "name": "kylin-qt5",
+            "configurePreset": "kylin-qt5"
+        }
+    ]
+}

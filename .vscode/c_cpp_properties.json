@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Windows Qt 6 MinGW",
+            "compilerPath": "D:/Qt/Tools/mingw1310_64/bin/g++.exe",
+            "intelliSenseMode": "windows-gcc-x64",
+            "cppStandard": "c++17",
+            "cStandard": "c17",
+            "compileCommands": "${workspaceFolder}/build-windows/compile_commands.json",
+            "includePath": [
+                "${workspaceFolder}/common/include",
+                "${workspaceFolder}/server/include",
+                "${workspaceFolder}/client/include",
+                "D:/Qt/6.11.0/mingw_64/include",
+                "D:/Qt/6.11.0/mingw_64/include/QtCore",
+                "D:/Qt/6.11.0/mingw_64/include/QtNetwork",
+                "D:/Qt/6.11.0/mingw_64/include/QtSql",
+                "D:/Qt/6.11.0/mingw_64/include/QtWidgets"
+            ]
+        }
+    ],
+    "version": 4
+}

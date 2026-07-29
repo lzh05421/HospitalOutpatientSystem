@@ -1,0 +1,172 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Windows: Configure Qt",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/windows_configure.ps1"
+            ],
+            "problemMatcher": [],
+            "windows": {
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        },
+        {
+            "label": "Windows: Build",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/windows_build.ps1"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc",
+            "dependsOn": "Windows: Configure Qt"
+        },
+        {
+            "label": "Windows: Run All",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/windows_run_all.ps1"
+            ],
+            "problemMatcher": [],
+            "dependsOn": "Windows: Build"
+        },
+        {
+            "label": "Windows: Run Server",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/windows_run_server.ps1"
+            ],
+            "problemMatcher": [],
+            "dependsOn": "Windows: Build"
+        },
+        {
+            "label": "Windows: Run Client",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/windows_run_client.ps1"
+            ],
+            "problemMatcher": [],
+            "dependsOn": "Windows: Build"
+        },
+        {
+            "label": "Linux: Configure Qt",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/linux_configure.sh"
+            ],
+            "problemMatcher": [],
+            "linux": {
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        },
+        {
+            "label": "Linux: Build",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/linux_build.sh"
+            ],
+            "group": "build",
+            "problemMatcher": "$gcc",
+            "dependsOn": "Linux: Configure Qt"
+        },
+        {
+            "label": "Linux: Run Server",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/linux_run_server.sh"
+            ],
+            "problemMatcher": [],
+            "dependsOn": "Linux: Build"
+        },
+        {
+            "label": "Linux: Run Client",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/linux_run_client.sh"
+            ],
+            "problemMatcher": [],
+            "dependsOn": "Linux: Build"
+        },
+        {
+            "label": "Kylin: Install Dependencies",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/kylin_install_deps.sh"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Kylin: Configure Qt",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/kylin_configure.sh"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Kylin: Build",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/kylin_build.sh"
+            ],
+            "group": "build",
+            "problemMatcher": "$gcc",
+            "dependsOn": "Kylin: Configure Qt"
+        },
+        {
+            "label": "Kylin: Run Server",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/kylin_run_server.sh"
+            ],
+            "problemMatcher": [],
+            "dependsOn": "Kylin: Build"
+        },
+        {
+            "label": "Kylin: Run Client",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/kylin_run_client.sh"
+            ],
+            "problemMatcher": [],
+            "dependsOn": "Kylin: Build"
+        }
+    ]
+}
